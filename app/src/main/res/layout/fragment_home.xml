@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/text_home"
+        style="@style/Widget.BrewCo.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Good Morning"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anderson"
+        style="@style/Widget.BrewCo.Headline"
+        app:layout_constraintStart_toStartOf="@+id/text_home"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <ImageButton
+        android:id="@+id/ib_cart"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="84dp"
+        android:background="@null"
+        android:src="@drawable/ic_buy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_profile"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:background="@null"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintStart_toEndOf="@+id/ib_cart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/ic_shape_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/Widget.BrewCo.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/loyalty_card"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <TextView
+        style="@style/Widget.BrewCo.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="4 / 8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <View
+        android:id="@+id/iv_loyalty_cup_card"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginHorizontal="22dp"
+        android:background="@drawable/ic_shape_card_white"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.721">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/iv_cup_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_coffee_cup"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_loyalty_cup_card"
+        app:layout_constraintStart_toStartOf="@+id/iv_loyalty_cup_card"
+        app:layout_constraintTop_toTopOf="@+id/iv_loyalty_cup_card" />
+
+    <ImageView
+        android:id="@+id/iv_cup_2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_1"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_1"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_1" />
+
+    <ImageView
+        android:id="@+id/iv_cup_3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_2"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_2"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_2" />
+
+    <ImageView
+        android:id="@+id/iv_cup_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_3"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_3"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_3" />
+
+    <ImageView
+        android:id="@+id/iv_cup_5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_4"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_4"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_4" />
+
+    <ImageView
+        android:id="@+id/iv_cup_6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_5"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_5"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_5" />
+
+    <ImageView
+        android:id="@+id/iv_cup_7"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_6"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_6"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_6" />
+
+    <ImageView
+        android:id="@+id/iv_cup_8"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_coffee_cup_outline"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cup_7"
+        app:layout_constraintStart_toEndOf="@+id/iv_cup_7"
+        app:layout_constraintTop_toTopOf="@+id/iv_cup_7" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_shape_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/Widget.BrewCo.Subtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/choose_your_coffee"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_coffee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:itemCount="2"
+        tools:listitem="@layout/rv_item_coffee" />
+</androidx.constraintlayout.widget.ConstraintLayout>

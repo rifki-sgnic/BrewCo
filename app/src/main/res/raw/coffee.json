@@ -1,0 +1,24 @@
+{
+  "coffee": [
+    {
+      "id": 1,
+      "name": "Americano",
+      "imagePath": "coffee_americano"
+    },
+    {
+      "id": 2,
+      "name": "Cappuccino",
+      "imagePath": "coffee_cappuccino"
+    },
+    {
+      "id": 3,
+      "name": "Mocha",
+      "imagePath": "coffee_mocha"
+    },
+    {
+      "id": 4,
+      "name": "Flat White",
+      "imagePath": "coffee_flat_white"
+    }
+  ]
+}
