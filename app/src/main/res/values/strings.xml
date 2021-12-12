@@ -7,4 +7,9 @@
     <string name="loyalty_card">Loyalty card</string>
     <string name="choose_your_coffee">Choose your Coffee</string>
     <string name="americano">Americano</string>
+    <string name="single_shot">Single</string>
+    <string name="double_shot">Double</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="checkout">Checkout</string>
+    <string name="total_price">Total Price</string>
 </resources>

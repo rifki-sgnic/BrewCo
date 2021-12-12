@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="327dp"
+    android:layout_height="96dp"
+    android:background="@drawable/ic_shape_cart"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/iv_coffee_image"
+        android:layout_width="82dp"
+        android:layout_height="61dp"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/coffee_americano"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cart_coffee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/americano"
+        style="@style/Widget.BrewCo.Subtitle4"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_coffee_image"
+        app:layout_constraintStart_toEndOf="@+id/iv_coffee_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_coffee_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_cart_coffee_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="single | ice | medium | full ice"
+        style="@style/Widget.BrewCo.Subtitle5"
+        app:layout_constraintStart_toStartOf="@+id/tv_cart_coffee_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cart_coffee_name" />
+
+    <TextView
+        android:id="@+id/tv_cart_coffee_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="x 1"
+        app:layout_constraintStart_toStartOf="@+id/tv_cart_coffee_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cart_coffee_detail" />
+
+    <TextView
+        android:id="@+id/tv_cart_coffee_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginVertical="35dp"
+        android:text="Rp 35000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

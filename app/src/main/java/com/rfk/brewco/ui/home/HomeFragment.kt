@@ -1,5 +1,6 @@
 package com.rfk.brewco.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import com.rfk.brewco.R
 import com.rfk.brewco.ViewModelFactory
 import com.rfk.brewco.data.Coffee
 import com.rfk.brewco.databinding.FragmentHomeBinding
+import com.rfk.brewco.ui.cart.CartActivity
+import com.rfk.brewco.ui.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
 
@@ -21,19 +24,33 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
-    private val binding get() = _binding!!
+    private val binding get() = _binding as FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.rv_coffee)
+
+        val profile = binding.ibProfile
+        profile.setOnClickListener {
+            val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        val cart = binding.ibCart
+        cart.setOnClickListener {
+            val intent = Intent(context, CartActivity::class.java)
+            startActivity(intent)
+        }
+
+        recyclerView = binding.rvCoffee
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
         val factory = ViewModelFactory.getInstance(requireContext())

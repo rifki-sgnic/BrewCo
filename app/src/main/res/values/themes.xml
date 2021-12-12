@@ -26,6 +26,18 @@
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
+
+    <style name="Widget.BrewCo.Headline3" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="Widget.BrewCo.Headline4" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/black_50</item>
+    </style>
     
     <style name="Widget.BrewCo.Subtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textSize">14sp</item>
@@ -43,5 +55,51 @@
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="Widget.BrewCo.Subtitle4" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="Widget.BrewCo.Subtitle5" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/cartTextColor</item>
+    </style>
+
+    <style name="Widget.BrewCo.Subtitle6" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/primaryTextColor_20</item>
+    </style>
+
+    <!-- RadioButton -->
+    <style name="CustomBtnShot" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/custom_btn_shot</item>
+    </style>
+
+    <style name="MyRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="colorControlNormal">@color/primaryTextColor</item>
+        <item name="colorControlActivated">#000000</item>
+    </style>
+
+    <!-- Button -->
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.BrewCo.Button" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+
+    <style name="ThemeOverlay.App.Button" parent="">
+        <item name="colorPrimary">@color/primaryTextColor</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 </resources>

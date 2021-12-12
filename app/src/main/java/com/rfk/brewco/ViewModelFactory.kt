@@ -4,14 +4,18 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.rfk.brewco.data.CoffeeRepository
+import com.rfk.brewco.ui.detail.DetailViewModel
 import com.rfk.brewco.ui.home.HomeViewModel
 
-class ViewModelFactory private constructor(private val taskRepository: CoffeeRepository) : ViewModelProvider.Factory {
+class ViewModelFactory private constructor(private val coffeeRepository: CoffeeRepository) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         when {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(taskRepository) as T
+                HomeViewModel(coffeeRepository) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(coffeeRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

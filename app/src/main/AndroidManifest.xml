@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BrewCo">
         <activity
+            android:name=".ui.cart.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false" />
         <activity

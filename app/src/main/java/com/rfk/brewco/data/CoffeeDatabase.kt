@@ -60,6 +60,7 @@ abstract class CoffeeDatabase : RoomDatabase() {
                                 item.getInt("id"),
                                 item.getString("name"),
                                 item.getString("imagePath"),
+                                item.getInt("price")
                             )
                         )
                     }

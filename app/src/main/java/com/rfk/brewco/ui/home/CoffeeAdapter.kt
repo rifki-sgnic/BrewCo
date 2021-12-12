@@ -8,17 +8,17 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.rfk.brewco.data.Coffee
-import com.rfk.brewco.databinding.RvItemCoffeeBinding
+import com.rfk.brewco.databinding.ItemCoffeeBinding
 import com.rfk.brewco.ui.detail.DetailActivity
+import com.rfk.brewco.utils.COFFEE_ID
 
 class CoffeeAdapter(private val context: Context) : PagedListAdapter<Coffee, CoffeeAdapter.ListViewHolder>(DIFF_CALLBACK) {
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ListViewHolder {
-        val binding = RvItemCoffeeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemCoffeeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -27,7 +27,7 @@ class CoffeeAdapter(private val context: Context) : PagedListAdapter<Coffee, Cof
         holder.bind(coffee)
     }
 
-    inner class ListViewHolder(private val binding: RvItemCoffeeBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ListViewHolder(private val binding: ItemCoffeeBinding) : RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var getCoffee: Coffee
 
@@ -38,6 +38,7 @@ class CoffeeAdapter(private val context: Context) : PagedListAdapter<Coffee, Cof
                 ivCoffeeImage.setImageResource(context.resources.getIdentifier(coffee.imagePath, "drawable", context.packageName))
                 cardView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra(COFFEE_ID, coffee.id)
                     itemView.context.startActivity(intent)
                 }
             }

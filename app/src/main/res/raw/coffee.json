@@ -3,22 +3,26 @@
     {
       "id": 1,
       "name": "Americano",
-      "imagePath": "coffee_americano"
+      "imagePath": "coffee_americano",
+      "price": 20000
     },
     {
       "id": 2,
       "name": "Cappuccino",
-      "imagePath": "coffee_cappuccino"
+      "imagePath": "coffee_cappuccino",
+      "price": 23000
     },
     {
       "id": 3,
       "name": "Mocha",
-      "imagePath": "coffee_mocha"
+      "imagePath": "coffee_mocha",
+      "price": 23000
     },
     {
       "id": 4,
       "name": "Flat White",
-      "imagePath": "coffee_flat_white"
+      "imagePath": "coffee_flat_white",
+      "price": 23000
     }
   ]
 }

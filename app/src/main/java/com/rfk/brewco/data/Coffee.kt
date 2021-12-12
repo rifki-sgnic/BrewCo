@@ -21,5 +21,9 @@ data class Coffee(
 
     @ColumnInfo(name = "imagePath")
     @NonNull
-    var imagePath: String
+    var imagePath: String,
+
+    @ColumnInfo(name = "price")
+    @NonNull
+    var price: Int
 ) : Parcelable
