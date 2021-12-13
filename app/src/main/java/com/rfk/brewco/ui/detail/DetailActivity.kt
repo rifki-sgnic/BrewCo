@@ -3,6 +3,7 @@ package com.rfk.brewco.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -72,6 +73,40 @@ class DetailActivity : AppCompatActivity() {
                 calculateTotalPrice(num, price)
             }
         }
+
+        val rgShot = binding.rgShot
+        rgShot.setOnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.rb_single_shot -> Toast.makeText(this, "Single", Toast.LENGTH_SHORT).show()
+                R.id.rb_double_shot -> Toast.makeText(this, "Double", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val rgSelect = binding.rgSelect
+        rgSelect.setOnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.rb_select_hot -> Toast.makeText(this, "Hot", Toast.LENGTH_SHORT).show()
+                R.id.rb_select_ice -> Toast.makeText(this, "Ice", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val rgSize = binding.rgSize
+        rgSize.setOnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.rb_size_small -> Toast.makeText(this, "Small", Toast.LENGTH_SHORT).show()
+                R.id.rb_size_regular -> Toast.makeText(this, "Regular", Toast.LENGTH_SHORT).show()
+                R.id.rb_size_large -> Toast.makeText(this, "Large", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val rgIce = binding.rgIce
+        rgIce.setOnCheckedChangeListener { radioGroup, i ->
+            when (i) {
+                R.id.rb_ice_less -> Toast.makeText(this, "Less", Toast.LENGTH_SHORT).show()
+                R.id.rb_ice_normal -> Toast.makeText(this, "Normal", Toast.LENGTH_SHORT).show()
+                R.id.rb_ice_more -> Toast.makeText(this, "More", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun calculateTotalPrice(num: Int, price: Int) {
@@ -79,25 +114,6 @@ class DetailActivity : AppCompatActivity() {
         total = num * price
         binding.tvDetailTotal.text = total.toString()
     }
-
-    fun onShotChecked(view: android.view.View) {
-        val rg = binding.rgShot
-        when (rg.checkedRadioButtonId) {
-            R.id.rb_single_shot -> {
-                Toast.makeText(this, "Single", Toast.LENGTH_SHORT).show()
-            }
-            R.id.rb_double_shot -> Toast.makeText(this, "Double", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    fun onSelectChecked(view: android.view.View) {
-        val rg = binding.rgSelect
-        val rb = findViewById<RadioButton>(rg.checkedRadioButtonId)
-    }
-
-    fun onSizeChecked(view: android.view.View) {}
-    fun onIceChecked(view: android.view.View) {}
-
 
     override fun onDestroy() {
         super.onDestroy()

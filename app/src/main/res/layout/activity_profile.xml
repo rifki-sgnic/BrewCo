@@ -59,6 +59,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <TextView
+        android:id="@+id/tv_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anderson"
@@ -106,6 +107,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
+        android:id="@+id/tv_profile_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+6281234567890"
@@ -153,6 +155,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <TextView
+        android:id="@+id/tv_profile_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anderson@email.com"
@@ -200,6 +203,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <TextView
+        android:id="@+id/tv_profile_address"
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:text="3 Addersion Court Chino Hills, HO56824, United State"

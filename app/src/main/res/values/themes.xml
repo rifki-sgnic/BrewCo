@@ -70,7 +70,7 @@
     </style>
 
     <style name="Widget.BrewCo.Subtitle6" parent="TextAppearance.MaterialComponents.Subtitle2">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">11sp</item>
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/primaryTextColor_20</item>
     </style>

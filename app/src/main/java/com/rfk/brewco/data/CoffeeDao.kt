@@ -2,10 +2,8 @@ package com.rfk.brewco.data
 
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.rfk.brewco.data.user.User
 
 @Dao
 interface CoffeeDao {
@@ -16,5 +14,15 @@ interface CoffeeDao {
     fun getCoffeeById(id: Int): LiveData<Coffee>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertAll(vararg tasks: Coffee)
+    fun insertAll(vararg coffee: Coffee)
+
+    //User
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAllUser(vararg user: User)
+
+    @Update
+    fun updateUser(user: User)
+
+    @Query("SELECT * FROM user WHERE id =:id")
+    fun getUser(id: Int): LiveData<User>
 }

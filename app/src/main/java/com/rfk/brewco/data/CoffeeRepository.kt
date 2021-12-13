@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.rfk.brewco.data.user.User
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -19,6 +20,16 @@ class CoffeeRepository(private val coffeeDao: CoffeeDao, private val executor: E
 
     fun getCoffeeById(id: Int): LiveData<Coffee> {
         return coffeeDao.getCoffeeById(id)
+    }
+
+    fun getUser(id: Int): LiveData<User> {
+        return coffeeDao.getUser(id)
+    }
+
+    fun updateUser(user: User) {
+        executor.execute {
+            coffeeDao.updateUser(user)
+        }
     }
 
     companion object {

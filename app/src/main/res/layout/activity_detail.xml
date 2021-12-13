@@ -143,7 +143,6 @@
             android:layout_width="73dp"
             android:layout_height="29dp"
             android:checked="true"
-            android:onClick="onShotChecked"
             android:button="@drawable/ic_shape_detail_coffee"
             android:background="@drawable/custom_btn_shot"
             android:text="@string/single_shot"
@@ -156,7 +155,6 @@
             android:layout_width="73dp"
             android:layout_height="29dp"
             android:layout_marginStart="8dp"
-            android:onClick="onShotChecked"
             android:button="@drawable/ic_shape_detail_coffee"
             android:background="@drawable/custom_btn_shot"
             android:text="@string/double_shot"
@@ -202,9 +200,10 @@
             android:layout_width="28dp"
             android:layout_height="27dp"
             android:checked="true"
+            android:text="hot"
+            android:textSize="0sp"
             android:button="@drawable/ic_hot"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onSelectChecked" />
+            android:theme="@style/MyRadioButton" />
 
         <RadioButton
             android:id="@+id/rb_select_ice"
@@ -212,8 +211,7 @@
             android:layout_height="34dp"
             android:layout_marginStart="31dp"
             android:button="@drawable/ic_ice"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onSelectChecked" />
+            android:theme="@style/MyRadioButton" />
     </RadioGroup>
 
     <View
@@ -254,8 +252,7 @@
             android:layout_height="22dp"
             android:checked="true"
             android:button="@drawable/ic_small"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onSizeChecked" />
+            android:theme="@style/MyRadioButton" />
 
         <RadioButton
             android:id="@+id/rb_size_regular"
@@ -263,8 +260,7 @@
             android:layout_height="31dp"
             android:layout_marginStart="31dp"
             android:button="@drawable/ic_regular"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onSizeChecked" />
+            android:theme="@style/MyRadioButton"/>
 
         <RadioButton
             android:id="@+id/rb_size_large"
@@ -272,8 +268,7 @@
             android:layout_height="38dp"
             android:layout_marginStart="31dp"
             android:button="@drawable/ic_large"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onSizeChecked" />
+            android:theme="@style/MyRadioButton" />
     </RadioGroup>
 
     <View
@@ -314,8 +309,7 @@
             android:layout_height="14dp"
             android:checked="true"
             android:button="@drawable/ic_less"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onIceChecked" />
+            android:theme="@style/MyRadioButton" />
 
         <RadioButton
             android:id="@+id/rb_ice_normal"
@@ -323,8 +317,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="31dp"
             android:button="@drawable/ic_normal"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onIceChecked" />
+            android:theme="@style/MyRadioButton"/>
 
         <RadioButton
             android:id="@+id/rb_ice_more"
@@ -332,8 +325,7 @@
             android:layout_height="27dp"
             android:layout_marginStart="31dp"
             android:button="@drawable/ic_more"
-            android:theme="@style/MyRadioButton"
-            android:onClick="onIceChecked" />
+            android:theme="@style/MyRadioButton" />
     </RadioGroup>
 
     <TextView
@@ -343,7 +335,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/total_amount"
         style="@style/Widget.BrewCo.Headline2"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent" />
@@ -358,13 +350,13 @@
         android:textAlignment="textEnd"
         android:textColor="@color/primaryTextColor"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
+        app:layout_constraintEnd_toEndOf="@+id/btn_checkout"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_checkout"
         android:layout_width="315dp"
         android:layout_height="46dp"
         android:layout_marginBottom="20dp"
@@ -375,6 +367,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

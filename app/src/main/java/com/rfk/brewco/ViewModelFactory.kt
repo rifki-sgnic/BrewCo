@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.rfk.brewco.data.CoffeeRepository
 import com.rfk.brewco.ui.detail.DetailViewModel
 import com.rfk.brewco.ui.home.HomeViewModel
+import com.rfk.brewco.ui.profile.ProfileViewModel
 
 class ViewModelFactory private constructor(private val coffeeRepository: CoffeeRepository) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
@@ -16,6 +17,9 @@ class ViewModelFactory private constructor(private val coffeeRepository: CoffeeR
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(coffeeRepository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(coffeeRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
