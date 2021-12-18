@@ -12,4 +12,5 @@
     <color name="secondaryTextColor">#D8D8D8</color>
     <color name="cartTextColor">#757575</color>
     <color name="black_50">#80000000</color>
+    <color name="roundedBottomSheetPrimaryNavigationBarColor">@null</color>
 </resources>

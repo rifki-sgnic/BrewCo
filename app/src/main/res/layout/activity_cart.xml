@@ -31,11 +31,12 @@
         app:layout_constraintTop_toBottomOf="@+id/ib_nav_back" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
         android:layout_width="wrap_content"
-        android:layout_height="500dp"
+        android:layout_height="480dp"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +45,12 @@
         tools:listitem="@layout/item_my_cart" />
 
     <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/total_price"
         android:layout_marginStart="32dp"
+        android:text="@string/total_price"
+        android:textColor="@color/primaryTextColor_20"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_cart_total_price"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,21 +62,26 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="40dp"
         android:text="Rp 70000"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="22sp"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_cart_checkout"
         style="@style/Widget.BrewCo.Button"
         android:layout_width="162dp"
         android:layout_height="52dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="32dp"
         android:background="@drawable/custom_button"
+        android:drawableLeft="@drawable/ic_buy"
+        android:drawableTint="@color/white"
         android:text="@string/checkout"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_cart_total_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

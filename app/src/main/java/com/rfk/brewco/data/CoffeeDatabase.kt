@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.rfk.brewco.R
+import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.data.user.User
 import org.json.JSONArray
 import org.json.JSONException
@@ -15,7 +16,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.concurrent.Executors
 
-@Database(entities = [Coffee::class, User::class], version = 1, exportSchema = false)
+@Database(entities = [Coffee::class, Cart::class], version = 1, exportSchema = false)
 abstract class CoffeeDatabase : RoomDatabase() {
 
     abstract fun CoffeeDao(): CoffeeDao
@@ -37,7 +38,6 @@ abstract class CoffeeDatabase : RoomDatabase() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             ioThread {
                                 fillWithStartingData(context, getInstance(context).CoffeeDao())
-                                fillWithStartingUserData(context, getInstance(context).CoffeeDao())
                             }
                         }
                     })
@@ -83,47 +83,6 @@ abstract class CoffeeDatabase : RoomDatabase() {
                 }
                 val json = JSONObject(builder.toString())
                 return json.getJSONArray("coffee")
-            } catch (exception: IOException) {
-                exception.printStackTrace()
-            } catch (exception: JSONException) {
-                exception.printStackTrace()
-            }
-            return null
-        }
-
-        private fun fillWithStartingUserData(context: Context, dao: CoffeeDao) {
-            val jsonArray = loadUserJsonArray(context)
-            try {
-                if (jsonArray != null) {
-                    for (i in 0 until jsonArray.length()) {
-                        val item = jsonArray.getJSONObject(i)
-                        dao.insertAllUser(
-                            User(
-                                item.getInt("id"),
-                                item.getString("name"),
-                                item.getString("phoneNumber"),
-                                item.getString("email"),
-                                item.getString("address")
-                            )
-                        )
-                    }
-                }
-            } catch (exception: JSONException) {
-                exception.printStackTrace()
-            }
-        }
-
-        private fun loadUserJsonArray(context: Context): JSONArray? {
-            val builder = StringBuilder()
-            val `in` = context.resources.openRawResource(R.raw.user)
-            val reader = BufferedReader(InputStreamReader(`in`))
-            var line: String?
-            try {
-                while (reader.readLine().also { line = it } != null) {
-                    builder.append(line)
-                }
-                val json = JSONObject(builder.toString())
-                return json.getJSONArray("user")
             } catch (exception: IOException) {
                 exception.printStackTrace()
             } catch (exception: JSONException) {

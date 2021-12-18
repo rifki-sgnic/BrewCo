@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.rfk.brewco.R
 import com.rfk.brewco.ViewModelFactory
+import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.databinding.ActivityDetailBinding
 import com.rfk.brewco.databinding.FragmentHomeBinding
 import com.rfk.brewco.ui.cart.CartActivity
@@ -22,6 +23,11 @@ class DetailActivity : AppCompatActivity() {
     private val binding get() = _binding as ActivityDetailBinding
 
     private var price: Int = 0
+    private lateinit var shot: String
+    private lateinit var type: String
+    private lateinit var size: String
+    private lateinit var ice: String
+    private var total: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,74 +51,146 @@ class DetailActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         viewModel.setSelectedId(coffeeId)
+
+        val qty = binding.tvDetailCoffeeQty
+        var num = qty.text.toString().toInt()
+
         viewModel.getCoffee().observe(this, { coffee ->
             if (coffee != null) {
                 binding.ivDetailCoffeeImage.setImageResource(resources.getIdentifier(coffee.imagePath, "drawable", packageName))
                 binding.tvDetailCoffeeName.text = coffee.name
                 binding.tvDetailTotal.text = coffee.price.toString()
                 price = coffee.price
+                viewModel.calculateTotalPrice(num, price)
+                viewModel.calculate()
             }
         })
-
-        val qty = binding.tvDetailCoffeeQty
-        var num = qty.text.toString().toInt()
-
-
 
         val addQty = binding.ibAddQty
         addQty.setOnClickListener {
             num++
             qty.text = num.toString()
-            calculateTotalPrice(num, price)
+            viewModel.calculateTotalPrice(num, price)
+            viewModel.calculate()
         }
         val removeQty = binding.ibRemoveQty
         removeQty.setOnClickListener {
-            if (num > 0) {
+            if (num > 1) {
                 num--
                 qty.text = num.toString()
-                calculateTotalPrice(num, price)
+                viewModel.calculateTotalPrice(num, price)
+                viewModel.calculate()
             }
         }
 
         val rgShot = binding.rgShot
+
         rgShot.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
-                R.id.rb_single_shot -> Toast.makeText(this, "Single", Toast.LENGTH_SHORT).show()
-                R.id.rb_double_shot -> Toast.makeText(this, "Double", Toast.LENGTH_SHORT).show()
+                R.id.rb_single_shot -> {
+                    val rbShot = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    shot = rbShot.text.toString()
+                    viewModel.currentShot(0)
+                    viewModel.calculate()
+                }
+                R.id.rb_double_shot -> {
+                    val rbShot = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    shot = rbShot.text.toString()
+                    viewModel.currentShot(3000)
+                    viewModel.calculate()
+                }
             }
         }
 
         val rgSelect = binding.rgSelect
         rgSelect.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
-                R.id.rb_select_hot -> Toast.makeText(this, "Hot", Toast.LENGTH_SHORT).show()
-                R.id.rb_select_ice -> Toast.makeText(this, "Ice", Toast.LENGTH_SHORT).show()
+                R.id.rb_select_hot -> {
+                    val rbSelect = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    type = rbSelect.text.toString()
+                    viewModel.currentType(0)
+                    viewModel.calculate()
+                }
+                R.id.rb_select_ice -> {
+                    val rbSelect = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    type = rbSelect.text.toString()
+                    viewModel.currentType(3000)
+                    viewModel.calculate()
+                }
             }
         }
 
         val rgSize = binding.rgSize
         rgSize.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
-                R.id.rb_size_small -> Toast.makeText(this, "Small", Toast.LENGTH_SHORT).show()
-                R.id.rb_size_regular -> Toast.makeText(this, "Regular", Toast.LENGTH_SHORT).show()
-                R.id.rb_size_large -> Toast.makeText(this, "Large", Toast.LENGTH_SHORT).show()
+                R.id.rb_size_small -> {
+                    val rbSize = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    size = rbSize.text.toString()
+                    viewModel.currentSize(0)
+                    viewModel.calculate()
+                }
+                R.id.rb_size_regular -> {
+                    val rbSize = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    size = rbSize.text.toString()
+                    viewModel.currentSize(2000)
+                    viewModel.calculate()
+                }
+                R.id.rb_size_large -> {
+                    val rbSize = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    size = rbSize.text.toString()
+                    viewModel.currentSize(5000)
+                    viewModel.calculate()
+                }
             }
         }
 
         val rgIce = binding.rgIce
         rgIce.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
-                R.id.rb_ice_less -> Toast.makeText(this, "Less", Toast.LENGTH_SHORT).show()
-                R.id.rb_ice_normal -> Toast.makeText(this, "Normal", Toast.LENGTH_SHORT).show()
-                R.id.rb_ice_more -> Toast.makeText(this, "More", Toast.LENGTH_SHORT).show()
+                R.id.rb_ice_less -> {
+                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    ice = rbIce.text.toString()
+                }
+                R.id.rb_ice_normal -> {
+                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    ice = rbIce.text.toString()
+                }
+                R.id.rb_ice_more -> {
+                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    ice = rbIce.text.toString()
+                }
             }
         }
-    }
 
-    private fun calculateTotalPrice(num: Int, price: Int) {
-        var total = 0
-        total = num * price
-        binding.tvDetailTotal.text = total.toString()
+        viewModel.total.observe(this, {
+            binding.tvDetailTotal.text = it.toString()
+            total = it
+        })
+
+        val addToCart = binding.btnAddToCart
+        addToCart.setOnClickListener {
+            val name = binding.tvDetailCoffeeName.text
+            val cartQty = qty.text
+            val selectedShot = shot
+            val selectedType = type
+            val selectedIce = ice
+            val selectedSize = size
+            val totalPrice = total
+
+            val cart = Cart(
+                name = name.toString(),
+                qty = cartQty.toString().toInt(),
+                shot = selectedShot,
+                type = selectedType,
+                size = selectedSize,
+                ice = selectedIce,
+                total = totalPrice
+            )
+            viewModel.insertCart(cart)
+
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroy() {

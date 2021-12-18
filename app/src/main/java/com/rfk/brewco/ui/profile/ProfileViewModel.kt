@@ -12,5 +12,5 @@ class ProfileViewModel(private val coffeeRepository: CoffeeRepository) : ViewMod
         this.id = id
     }
 
-    fun getUser() : LiveData<User> = coffeeRepository.getUser(id)
+//    fun getUser() : LiveData<User> = coffeeRepository.getUser(id)
 }

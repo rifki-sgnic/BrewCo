@@ -28,6 +28,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@null"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="42dp"
@@ -67,16 +77,6 @@
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <ImageButton
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@null"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="42dp"
@@ -114,16 +114,6 @@
         style="@style/Widget.BrewCo.Headline3"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <ImageButton
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@null"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -163,16 +153,6 @@
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <ImageButton
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@null"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
-
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="42dp"
@@ -206,20 +186,10 @@
         android:id="@+id/tv_profile_address"
         android:layout_width="208dp"
         android:layout_height="60dp"
-        android:text="3 Addersion Court Chino Hills, HO56824, United State"
+        android:text="@string/address"
         style="@style/Widget.BrewCo.Headline3"
         android:fontFamily="@font/poppins_semibold"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <ImageButton
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@null"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

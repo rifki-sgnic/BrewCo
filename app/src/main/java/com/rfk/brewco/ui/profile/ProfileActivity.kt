@@ -26,16 +26,16 @@ class ProfileActivity : AppCompatActivity() {
 
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
-        viewModel.setSelectedId(1)
-
-        viewModel.getUser().observe(this, { user ->
-            if (user != null) {
-                binding.tvProfileName.text = user.name
-                binding.tvProfilePhone.text = user.phoneNumber
-                binding.tvProfileEmail.text = user.email
-                binding.tvProfileAddress.text = user.address
-            }
-        })
+//        viewModel.setSelectedId(1)
+//
+//        viewModel.getUser().observe(this, { user ->
+//            if (user != null) {
+//                binding.tvProfileName.text = user.name
+//                binding.tvProfilePhone.text = user.phoneNumber
+//                binding.tvProfileEmail.text = user.email
+//                binding.tvProfileAddress.text = user.address
+//            }
+//        })
 
     }
 }

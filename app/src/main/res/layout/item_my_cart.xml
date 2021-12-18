@@ -46,6 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="x 1"
+        android:textSize="12sp"
+        android:textColor="@color/primaryTextColor"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintStart_toStartOf="@+id/tv_cart_coffee_detail"
         app:layout_constraintTop_toBottomOf="@+id/tv_cart_coffee_detail" />
 
@@ -56,6 +59,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginVertical="35dp"
         android:text="Rp 35000"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

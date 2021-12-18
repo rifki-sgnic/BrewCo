@@ -210,6 +210,8 @@
             android:layout_width="20dp"
             android:layout_height="34dp"
             android:layout_marginStart="31dp"
+            android:text="ice"
+            android:textSize="0sp"
             android:button="@drawable/ic_ice"
             android:theme="@style/MyRadioButton" />
     </RadioGroup>
@@ -250,6 +252,8 @@
             android:id="@+id/rb_size_small"
             android:layout_width="17dp"
             android:layout_height="22dp"
+            android:text="small"
+            android:textSize="0sp"
             android:checked="true"
             android:button="@drawable/ic_small"
             android:theme="@style/MyRadioButton" />
@@ -259,6 +263,8 @@
             android:layout_width="24dp"
             android:layout_height="31dp"
             android:layout_marginStart="31dp"
+            android:text="medium"
+            android:textSize="0sp"
             android:button="@drawable/ic_regular"
             android:theme="@style/MyRadioButton"/>
 
@@ -267,6 +273,8 @@
             android:layout_width="29dp"
             android:layout_height="38dp"
             android:layout_marginStart="31dp"
+            android:text="large"
+            android:textSize="0sp"
             android:button="@drawable/ic_large"
             android:theme="@style/MyRadioButton" />
     </RadioGroup>
@@ -307,6 +315,8 @@
             android:id="@+id/rb_ice_less"
             android:layout_width="14dp"
             android:layout_height="14dp"
+            android:text="less ice"
+            android:textSize="0sp"
             android:checked="true"
             android:button="@drawable/ic_less"
             android:theme="@style/MyRadioButton" />
@@ -316,6 +326,8 @@
             android:layout_width="29dp"
             android:layout_height="20dp"
             android:layout_marginStart="31dp"
+            android:text="normal ice"
+            android:textSize="0sp"
             android:button="@drawable/ic_normal"
             android:theme="@style/MyRadioButton"/>
 
@@ -324,6 +336,8 @@
             android:layout_width="29dp"
             android:layout_height="27dp"
             android:layout_marginStart="31dp"
+            android:text="more ice"
+            android:textSize="0sp"
             android:button="@drawable/ic_more"
             android:theme="@style/MyRadioButton" />
     </RadioGroup>
@@ -335,7 +349,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/total_amount"
         style="@style/Widget.BrewCo.Headline2"
-        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent" />
@@ -350,17 +364,17 @@
         android:textAlignment="textEnd"
         android:textColor="@color/primaryTextColor"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
-        app:layout_constraintEnd_toEndOf="@+id/btn_checkout"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_to_cart"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/btn_checkout"
+        android:id="@+id/btn_add_to_cart"
         android:layout_width="315dp"
         android:layout_height="46dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/checkout"
+        android:text="Add to cart"
         android:textAllCaps="false"
         android:background="@drawable/custom_button"
         style="@style/Widget.BrewCo.Button"
