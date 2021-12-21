@@ -84,7 +84,6 @@ class DetailActivity : AppCompatActivity() {
         }
 
         val rgShot = binding.rgShot
-
         rgShot.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
                 R.id.rb_single_shot -> {
@@ -104,15 +103,17 @@ class DetailActivity : AppCompatActivity() {
 
         val rgSelect = binding.rgSelect
         rgSelect.setOnCheckedChangeListener { radioGroup, i ->
+            val rbSelect = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+            type = rbSelect.text.toString()
             when (i) {
                 R.id.rb_select_hot -> {
-                    val rbSelect = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    isHotSelected(true)
                     type = rbSelect.text.toString()
                     viewModel.currentType(0)
                     viewModel.calculate()
                 }
                 R.id.rb_select_ice -> {
-                    val rbSelect = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                    isHotSelected(false)
                     type = rbSelect.text.toString()
                     viewModel.currentType(3000)
                     viewModel.calculate()
@@ -140,24 +141,6 @@ class DetailActivity : AppCompatActivity() {
                     size = rbSize.text.toString()
                     viewModel.currentSize(5000)
                     viewModel.calculate()
-                }
-            }
-        }
-
-        val rgIce = binding.rgIce
-        rgIce.setOnCheckedChangeListener { radioGroup, i ->
-            when (i) {
-                R.id.rb_ice_less -> {
-                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-                    ice = rbIce.text.toString()
-                }
-                R.id.rb_ice_normal -> {
-                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-                    ice = rbIce.text.toString()
-                }
-                R.id.rb_ice_more -> {
-                    val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-                    ice = rbIce.text.toString()
                 }
             }
         }
@@ -190,6 +173,37 @@ class DetailActivity : AppCompatActivity() {
 
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun isHotSelected(state: Boolean) {
+        val rgIce = binding.rgIce
+        if (state) {
+            rgIce.clearCheck()
+            for (index in 0 until rgIce.childCount) {
+                rgIce.getChildAt(index).isEnabled = false
+            }
+            ice = "-"
+        } else {
+            for (index in 0 until rgIce.childCount) {
+                rgIce.getChildAt(index).isEnabled = true
+            }
+            rgIce.setOnCheckedChangeListener { radioGroup, i ->
+                when (i) {
+                    R.id.rb_ice_less -> {
+                        val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                        ice = rbIce.text.toString()
+                    }
+                    R.id.rb_ice_normal -> {
+                        val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                        ice = rbIce.text.toString()
+                    }
+                    R.id.rb_ice_more -> {
+                        val rbIce = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+                        ice = rbIce.text.toString()
+                    }
+                }
+            }
         }
     }
 

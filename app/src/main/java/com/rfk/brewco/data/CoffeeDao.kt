@@ -24,6 +24,9 @@ interface CoffeeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertCart(cart: Cart)
 
+    @Delete
+    fun deleteCart(cart: Cart)
+
     //User
 //    @Insert(onConflict = OnConflictStrategy.IGNORE)
 //    fun insertAllUser(vararg user: User)

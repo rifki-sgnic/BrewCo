@@ -142,7 +142,6 @@
             android:id="@+id/rb_single_shot"
             android:layout_width="73dp"
             android:layout_height="29dp"
-            android:checked="true"
             android:button="@drawable/ic_shape_detail_coffee"
             android:background="@drawable/custom_btn_shot"
             android:text="@string/single_shot"
@@ -199,7 +198,6 @@
             android:id="@+id/rb_select_hot"
             android:layout_width="28dp"
             android:layout_height="27dp"
-            android:checked="true"
             android:text="hot"
             android:textSize="0sp"
             android:button="@drawable/ic_hot"
@@ -254,7 +252,6 @@
             android:layout_height="22dp"
             android:text="small"
             android:textSize="0sp"
-            android:checked="true"
             android:button="@drawable/ic_small"
             android:theme="@style/MyRadioButton" />
 
@@ -317,7 +314,6 @@
             android:layout_height="14dp"
             android:text="less ice"
             android:textSize="0sp"
-            android:checked="true"
             android:button="@drawable/ic_less"
             android:theme="@style/MyRadioButton" />
 

@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.rfk.brewco.data.Coffee
 import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.databinding.ItemMyCartBinding
 
-class CartAdapter(private val context: Context) : PagedListAdapter<Cart, CartAdapter.ListViewHolder>(
+class CartAdapter(private val context: Context, private val total: (Int) -> Unit) : PagedListAdapter<Cart, CartAdapter.ListViewHolder>(
     DIFF_CALLBACK
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.ListViewHolder {
@@ -34,9 +33,12 @@ class CartAdapter(private val context: Context) : PagedListAdapter<Cart, CartAda
                 tvCartCoffeeDetail.text = "${cart.shot} | ${cart.type} | ${cart.size} | ${cart.ice}"
                 tvCartCoffeePrice.text = "Rp ${cart.total}"
                 tvCartCoffeeQty.text = "x ${cart.qty}"
+                total(cart.total)
             }
         }
     }
+
+    fun getSwipedData(swipedPos: Int): Cart? = getItem(swipedPos)
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Cart>() {

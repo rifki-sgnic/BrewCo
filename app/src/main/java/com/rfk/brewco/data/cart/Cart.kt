@@ -35,7 +35,7 @@ data class Cart(
     @NonNull
     var size: String,
 
-    @ColumnInfo(name = "imagePath")
+    @ColumnInfo(name = "ice")
     @NonNull
     var ice: String,
 

@@ -38,6 +38,12 @@ class CoffeeRepository(private val coffeeDao: CoffeeDao, private val executor: E
         return execute.get()
     }
 
+    fun deleteCart(cart: Cart) {
+        executor.execute {
+            coffeeDao.deleteCart(cart)
+        }
+    }
+
 //    fun getUser(id: Int): LiveData<User> {
 //        return coffeeDao.getUser(id)
 //    }
