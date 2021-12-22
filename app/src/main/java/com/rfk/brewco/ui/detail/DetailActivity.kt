@@ -1,17 +1,15 @@
 package com.rfk.brewco.ui.detail
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.rfk.brewco.R
 import com.rfk.brewco.ViewModelFactory
 import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.databinding.ActivityDetailBinding
-import com.rfk.brewco.databinding.FragmentHomeBinding
 import com.rfk.brewco.ui.cart.CartActivity
 import com.rfk.brewco.utils.COFFEE_ID
 
@@ -23,10 +21,10 @@ class DetailActivity : AppCompatActivity() {
     private val binding get() = _binding as ActivityDetailBinding
 
     private var price: Int = 0
-    private lateinit var shot: String
-    private lateinit var type: String
-    private lateinit var size: String
-    private lateinit var ice: String
+    private var shot: String = ""
+    private var type: String = ""
+    private var size: String = ""
+    private var ice: String = ""
     private var total: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +55,13 @@ class DetailActivity : AppCompatActivity() {
 
         viewModel.getCoffee().observe(this, { coffee ->
             if (coffee != null) {
-                binding.ivDetailCoffeeImage.setImageResource(resources.getIdentifier(coffee.imagePath, "drawable", packageName))
+                binding.ivDetailCoffeeImage.setImageResource(
+                    resources.getIdentifier(
+                        coffee.imagePath,
+                        "drawable",
+                        packageName
+                    )
+                )
                 binding.tvDetailCoffeeName.text = coffee.name
                 binding.tvDetailTotal.text = coffee.price.toString()
                 price = coffee.price
@@ -152,27 +156,32 @@ class DetailActivity : AppCompatActivity() {
 
         val addToCart = binding.btnAddToCart
         addToCart.setOnClickListener {
-            val name = binding.tvDetailCoffeeName.text
-            val cartQty = qty.text
-            val selectedShot = shot
-            val selectedType = type
-            val selectedIce = ice
-            val selectedSize = size
-            val totalPrice = total
+            if (shot.isNotEmpty() && type.isNotEmpty() && type.isNotEmpty() && ice.isNotEmpty() && size.isNotEmpty()) {
 
-            val cart = Cart(
-                name = name.toString(),
-                qty = cartQty.toString().toInt(),
-                shot = selectedShot,
-                type = selectedType,
-                size = selectedSize,
-                ice = selectedIce,
-                total = totalPrice
-            )
-            viewModel.insertCart(cart)
+                val name = binding.tvDetailCoffeeName.text
+                val cartQty = qty.text
+                val selectedShot = shot
+                val selectedType = type
+                val selectedIce = ice
+                val selectedSize = size
+                val totalPrice = total
 
-            val intent = Intent(this, CartActivity::class.java)
-            startActivity(intent)
+                val cart = Cart(
+                    name = name.toString(),
+                    qty = cartQty.toString().toInt(),
+                    shot = selectedShot,
+                    type = selectedType,
+                    size = selectedSize,
+                    ice = selectedIce,
+                    total = totalPrice
+                )
+                viewModel.insertCart(cart)
+
+                val intent = Intent(this, CartActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Pick all the selection", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

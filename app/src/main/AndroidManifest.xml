@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BrewCo">
         <activity
+            android:name=".ui.profile.FormProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.cart.OrderSuccessActivity"
             android:exported="false" />
         <activity

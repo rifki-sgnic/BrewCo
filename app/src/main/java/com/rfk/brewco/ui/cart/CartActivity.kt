@@ -1,28 +1,21 @@
 package com.rfk.brewco.ui.cart
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isNotEmpty
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.rfk.brewco.R
+import com.rfk.brewco.MainActivity
 import com.rfk.brewco.ViewModelFactory
-import com.rfk.brewco.data.Coffee
 import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.databinding.ActivityCartBinding
-import com.rfk.brewco.databinding.ItemMyCartBinding
-import com.rfk.brewco.ui.detail.DetailViewModel
-import com.rfk.brewco.ui.home.CoffeeAdapter
-import java.lang.StringBuilder
 
 class CartActivity : AppCompatActivity() {
 
@@ -43,7 +36,9 @@ class CartActivity : AppCompatActivity() {
 
         val navBack = binding.ibNavBack
         navBack.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
         }
 
         binding.viewEmpty.root.visibility = View.VISIBLE
@@ -91,16 +86,22 @@ class CartActivity : AppCompatActivity() {
                 binding.viewEmpty.root.visibility = View.GONE
             }
         }
-
         adapter.submitList(cart)
         recyclerView.adapter = adapter
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int =
+        override fun getMovementFlags(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder
+        ): Int =
             makeMovementFlags(0, ItemTouchHelper.RIGHT)
 
-        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean = true
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean = true
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val swipedPosition = viewHolder.adapterPosition

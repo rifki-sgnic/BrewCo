@@ -17,4 +17,10 @@
     <string name="delivery_address">Delivery Address</string>
     <string name="anderson">Anderson</string>
     <string name="address">3 Addersion Court Chino Hills, HO56824, United State</string>
+    <string name="save">Save</string>
+    <string name="ed_profile_name">Name</string>
+    <string name="ed_profile_address">Address</string>
+    <string name="ed_profile_phone">Phone Number</string>
+    <string name="ed_profile_email">Email</string>
+    <string name="history">History</string>
 </resources>

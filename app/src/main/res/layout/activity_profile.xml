@@ -10,9 +10,9 @@
         android:id="@+id/ib_nav_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@null"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
         android:src="@drawable/ic_arrow_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/ib_edit"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="32dp"
@@ -36,7 +37,8 @@
         android:src="@drawable/ic_edit"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:tint="@color/primaryTextColor" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -60,20 +62,20 @@
 
     <TextView
         android:id="@+id/textView4"
+        style="@style/Widget.BrewCo.Subtitle6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Full Name"
-        style="@style/Widget.BrewCo.Subtitle6"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/tv_profile_name"
+        style="@style/Widget.BrewCo.Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anderson"
-        style="@style/Widget.BrewCo.Headline3"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -98,20 +100,20 @@
 
     <TextView
         android:id="@+id/textView5"
+        style="@style/Widget.BrewCo.Subtitle6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Phone Number"
-        style="@style/Widget.BrewCo.Subtitle6"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tv_profile_phone"
+        style="@style/Widget.BrewCo.Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+6281234567890"
-        style="@style/Widget.BrewCo.Headline3"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -136,20 +138,20 @@
 
     <TextView
         android:id="@+id/textView6"
+        style="@style/Widget.BrewCo.Subtitle6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Email"
-        style="@style/Widget.BrewCo.Subtitle6"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <TextView
         android:id="@+id/tv_profile_email"
+        style="@style/Widget.BrewCo.Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anderson@email.com"
-        style="@style/Widget.BrewCo.Headline3"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -174,21 +176,21 @@
 
     <TextView
         android:id="@+id/textView7"
+        style="@style/Widget.BrewCo.Subtitle6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Address"
-        style="@style/Widget.BrewCo.Subtitle6"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <TextView
         android:id="@+id/tv_profile_address"
+        style="@style/Widget.BrewCo.Headline3"
         android:layout_width="208dp"
         android:layout_height="60dp"
-        android:text="@string/address"
-        style="@style/Widget.BrewCo.Headline3"
         android:fontFamily="@font/poppins_semibold"
+        android:text="@string/address"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

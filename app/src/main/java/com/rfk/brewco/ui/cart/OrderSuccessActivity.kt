@@ -1,11 +1,9 @@
 package com.rfk.brewco.ui.cart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.room.FtsOptions
+import androidx.appcompat.app.AppCompatActivity
 import com.rfk.brewco.MainActivity
-import com.rfk.brewco.R
 import com.rfk.brewco.databinding.ActivityOrderSuccessBinding
 
 class OrderSuccessActivity : AppCompatActivity() {

@@ -7,14 +7,14 @@ import com.rfk.brewco.data.Coffee
 import com.rfk.brewco.data.CoffeeRepository
 import com.rfk.brewco.data.cart.Cart
 
-class DetailViewModel(private val coffeeRepository: CoffeeRepository): ViewModel() {
+class DetailViewModel(private val coffeeRepository: CoffeeRepository) : ViewModel() {
     private var id: Int = 0
 
     fun setSelectedId(id: Int) {
         this.id = id
     }
 
-    fun getCoffee() : LiveData<Coffee> = coffeeRepository.getCoffeeById(id)
+    fun getCoffee(): LiveData<Coffee> = coffeeRepository.getCoffeeById(id)
 
     fun insertCart(cart: Cart) = coffeeRepository.insertCart(cart)
 

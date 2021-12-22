@@ -13,8 +13,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="35dp"
         android:text="@string/order_confirmation"
-        android:textSize="20sp"
         android:textColor="@color/primaryTextColor"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="@string/delivery_address"
-        android:textSize="14sp"
         android:textColor="@color/primaryTextColor"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -48,29 +48,31 @@
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tv_checkout_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="19dp"
         android:text="@string/anderson"
-        android:textSize="12sp"
         android:textColor="@color/primaryTextColor"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
+        android:id="@+id/tv_checkout_delivery_address"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="@string/address"
-        android:maxLines="2"
-        android:textSize="11sp"
-        android:textColor="@color/primaryTextColor"
         android:fontFamily="@font/poppins_light"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        android:maxLines="2"
+        android:text="@string/address"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_checkout_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_checkout_name" />
 
     <ImageButton
+        android:id="@+id/ib_checkout_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="35dp"
@@ -94,16 +96,16 @@
             android:layout_width="match_parent"
             android:layout_height="81dp"
             android:layout_marginBottom="20dp"
-            android:text="Online Banking"
             android:background="@drawable/ic_shape_checkout"
-            android:checked="true" />
+            android:checked="true"
+            android:text="Online Banking" />
 
         <RadioButton
             android:id="@+id/rb_payment_credit_card"
             android:layout_width="match_parent"
             android:layout_height="81dp"
-            android:text="Credit Card"
-            android:background="@drawable/ic_shape_checkout" />
+            android:background="@drawable/ic_shape_checkout"
+            android:text="Credit Card" />
     </RadioGroup>
 
     <TextView
@@ -154,8 +156,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:text="@string/total_price"
-        android:textSize="12sp"
         android:textColor="@color/primaryTextColor_20"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 

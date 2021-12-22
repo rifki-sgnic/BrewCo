@@ -1,13 +1,11 @@
 package com.rfk.brewco.ui.history
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
+import com.rfk.brewco.data.CoffeeRepository
+import com.rfk.brewco.data.history.History
 
-class HistoryViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
+class HistoryViewModel(private val coffeeRepository: CoffeeRepository) : ViewModel() {
+    val history: LiveData<PagedList<History>> = coffeeRepository.getHistory()
 }

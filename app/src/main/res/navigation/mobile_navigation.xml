@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.rfk.brewco.ui.dashboard.DashboardFragment"
+        android:name="com.rfk.brewco.ui.rewards.RewardsFragment"
         android:label="@string/title_rewards"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_rewards" />
 
     <fragment
         android:id="@+id/navigation_notifications"

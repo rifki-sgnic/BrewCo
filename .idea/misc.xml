@@ -26,6 +26,7 @@
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/drawable/ic_shape_profile.xml" value="0.3828125" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_cart.xml" value="0.33" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_detail.xml" value="0.33" />
+        <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_form_profile.xml" value="0.33" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_order_success.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/activity_profile.xml" value="0.5" />
@@ -33,6 +34,7 @@
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/fragment_checkout.xml" value="0.33" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/fragment_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/fragment_rewards.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/item_coffee.xml" value="0.36666666666666664" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/item_history.xml" value="0.5" />
         <entry key="..\:/Kuliah/AndroidStudio/BrewCo/app/src/main/res/layout/item_my_cart.xml" value="0.67" />

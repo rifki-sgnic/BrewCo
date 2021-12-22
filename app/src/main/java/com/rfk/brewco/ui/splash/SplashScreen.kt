@@ -1,11 +1,10 @@
 package com.rfk.brewco.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.rfk.brewco.MainActivity
-import com.rfk.brewco.R
 import com.rfk.brewco.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {

@@ -12,22 +12,24 @@ import com.rfk.brewco.databinding.ItemCoffeeBinding
 import com.rfk.brewco.ui.detail.DetailActivity
 import com.rfk.brewco.utils.COFFEE_ID
 
-class CoffeeAdapter(private val context: Context) : PagedListAdapter<Coffee, CoffeeAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class CoffeeAdapter(private val context: Context) :
+    PagedListAdapter<Coffee, CoffeeAdapter.CoffeeViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListViewHolder {
+    ): CoffeeViewHolder {
         val binding = ItemCoffeeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ListViewHolder(binding)
+        return CoffeeViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CoffeeViewHolder, position: Int) {
         val coffee = getItem(position) as Coffee
         holder.bind(coffee)
     }
 
-    inner class ListViewHolder(private val binding: ItemCoffeeBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CoffeeViewHolder(private val binding: ItemCoffeeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var getCoffee: Coffee
 
@@ -35,7 +37,13 @@ class CoffeeAdapter(private val context: Context) : PagedListAdapter<Coffee, Cof
             getCoffee = coffee
             with(binding) {
                 tvCoffeeName.text = coffee.name
-                ivCoffeeImage.setImageResource(context.resources.getIdentifier(coffee.imagePath, "drawable", context.packageName))
+                ivCoffeeImage.setImageResource(
+                    context.resources.getIdentifier(
+                        coffee.imagePath,
+                        "drawable",
+                        context.packageName
+                    )
+                )
                 cardView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(COFFEE_ID, coffee.id)

@@ -15,6 +15,7 @@ internal class UserPreference(context: Context) {
         editor.putString(ADDRESS, value.address)
         editor.apply()
     }
+
     fun getUser(): User {
         val model = User()
         model.name = preferences.getString(NAME, "")

@@ -33,7 +33,7 @@
     <include
         android:id="@+id/view_empty"
         layout="@layout/view_empty_cart"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart"

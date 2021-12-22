@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.rfk.brewco.R
 import com.rfk.brewco.data.cart.Cart
-import com.rfk.brewco.data.user.User
+import com.rfk.brewco.data.history.History
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -16,7 +16,11 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.concurrent.Executors
 
-@Database(entities = [Coffee::class, Cart::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Coffee::class, Cart::class, History::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class CoffeeDatabase : RoomDatabase() {
 
     abstract fun CoffeeDao(): CoffeeDao
@@ -34,7 +38,7 @@ abstract class CoffeeDatabase : RoomDatabase() {
                     "coffee.db"
                 )
                     .fallbackToDestructiveMigration()
-                    .addCallback(object: Callback() {
+                    .addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             ioThread {
                                 fillWithStartingData(context, getInstance(context).CoffeeDao())

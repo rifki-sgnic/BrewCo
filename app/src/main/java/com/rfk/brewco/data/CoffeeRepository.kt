@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.rfk.brewco.data.cart.Cart
-import com.rfk.brewco.data.user.User
+import com.rfk.brewco.data.history.History
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -44,15 +44,25 @@ class CoffeeRepository(private val coffeeDao: CoffeeDao, private val executor: E
         }
     }
 
-//    fun getUser(id: Int): LiveData<User> {
-//        return coffeeDao.getUser(id)
-//    }
-//
-//    fun updateUser(user: User) {
-//        executor.execute {
-//            coffeeDao.updateUser(user)
-//        }
-//    }
+    fun deleteAllCart() {
+        executor.execute {
+            coffeeDao.deleteAllCart()
+        }
+    }
+
+    fun getHistory(): LiveData<PagedList<History>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(true)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(coffeeDao.getHistory(), config).build()
+    }
+
+    fun insertHistory(newHistory: History) {
+        val callable = Callable { coffeeDao.insertHistory(newHistory) }
+        val execute = executor.submit(callable)
+        return execute.get()
+    }
 
     companion object {
         @Volatile

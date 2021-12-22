@@ -9,20 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rfk.brewco.data.cart.Cart
 import com.rfk.brewco.databinding.ItemMyCartBinding
 
-class CartAdapter(private val context: Context, private val total: (Int) -> Unit) : PagedListAdapter<Cart, CartAdapter.ListViewHolder>(
-    DIFF_CALLBACK
-) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.ListViewHolder {
+class CartAdapter(private val context: Context, private val total: (Int) -> Unit) :
+    PagedListAdapter<Cart, CartAdapter.CartViewHolder>(
+        DIFF_CALLBACK
+    ) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.CartViewHolder {
         val binding = ItemMyCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ListViewHolder(binding)
+        return CartViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CartAdapter.ListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CartAdapter.CartViewHolder, position: Int) {
         val cart = getItem(position) as Cart
         holder.bind(cart)
     }
 
-    inner class ListViewHolder(private val binding: ItemMyCartBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CartViewHolder(private val binding: ItemMyCartBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var getCart: Cart
 
@@ -31,8 +33,47 @@ class CartAdapter(private val context: Context, private val total: (Int) -> Unit
             with(binding) {
                 tvCartCoffeeName.text = cart.name
                 tvCartCoffeeDetail.text = "${cart.shot} | ${cart.type} | ${cart.size} | ${cart.ice}"
-                tvCartCoffeePrice.text = "Rp ${cart.total}"
-                tvCartCoffeeQty.text = "x ${cart.qty}"
+                tvCartCoffeePrice.text = StringBuilder("Rp ").append(cart.total.toString())
+                tvCartCoffeeQty.text = StringBuilder("x ").append(cart.qty.toString())
+
+                when (cart.name) {
+                    "Americano" -> ivCoffeeImage.setImageResource(
+                        context.resources.getIdentifier(
+                            "coffee_americano",
+                            "drawable",
+                            context.packageName
+                        )
+                    )
+                    "Cappuccino" -> ivCoffeeImage.setImageResource(
+                        context.resources.getIdentifier(
+                            "coffee_cappuccino",
+                            "drawable",
+                            context.packageName
+                        )
+                    )
+                    "Mocha" -> ivCoffeeImage.setImageResource(
+                        context.resources.getIdentifier(
+                            "coffee_mocha",
+                            "drawable",
+                            context.packageName
+                        )
+                    )
+                    "Flat White" -> ivCoffeeImage.setImageResource(
+                        context.resources.getIdentifier(
+                            "coffee_flat_white",
+                            "drawable",
+                            context.packageName
+                        )
+                    )
+                    else -> ivCoffeeImage.setImageResource(
+                        context.resources.getIdentifier(
+                            "coffee_americano",
+                            "drawable",
+                            context.packageName
+                        )
+                    )
+                }
+
                 total(cart.total)
             }
         }

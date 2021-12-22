@@ -1,13 +1,11 @@
 package com.rfk.brewco.ui.cart
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.paging.PagedList
 import com.rfk.brewco.data.CoffeeRepository
 import com.rfk.brewco.data.cart.Cart
-import kotlinx.coroutines.launch
+import com.rfk.brewco.data.history.History
 
 class CartViewModel(private val coffeeRepository: CoffeeRepository) : ViewModel() {
     val cart: LiveData<PagedList<Cart>> = coffeeRepository.getCart()
@@ -18,5 +16,13 @@ class CartViewModel(private val coffeeRepository: CoffeeRepository) : ViewModel(
 
     fun deleteCart(cart: Cart) {
         coffeeRepository.deleteCart(cart)
+    }
+
+    fun deleteAllCart() {
+        coffeeRepository.deleteAllCart()
+    }
+
+    fun insertHistory(history: History) {
+        coffeeRepository.insertHistory(history)
     }
 }
